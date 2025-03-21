@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class SceneChanger : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Button activeButton;
+
+
     void Start()
     {
-        
+        activeButton.onClick.AddListener(SceneChange);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SceneChange()
     {
+        string activeScene = SceneManager.GetActiveScene().name;
         
+        switch (activeScene)
+        {
+            case "StartScene":
+                SceneManager.LoadScene("MainScene");
+                break;
+            case "MainScene":
+                SceneManager.LoadScene("StageScene");
+                break;
+            case "StageScene":
+                break;
+            default:
+                break;
+        }
     }
 }
+

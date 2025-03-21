@@ -3,39 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIMainMenu : MonoBehaviour
+public class UIMainMenu : UIBase
 {
-    [SerializeField] private Button menuButton;
-    [SerializeField] private Button statusButton;
-    [SerializeField] private Button inventoryButton;
-
-
-
-    void Start()
+    public override void Init(UIManager uIManager)
     {
-        menuButton.onClick.AddListener(OpenMainMenu);
-        statusButton.onClick.AddListener(OpenStatus);
-        inventoryButton.onClick.AddListener(OpenInventory);
+        base.Init(uIManager);
     }
 
-    void Update()
+    protected override UIState GetUIState()
     {
-        
+        return UIState.MainMenu;
     }
-
-    void OpenMainMenu()
-    {
-
-    }
-
-    void OpenStatus()
-    {
-
-    }
-
-    void OpenInventory()
-    {
-
-    }
-
 }
