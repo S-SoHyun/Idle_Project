@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class PlayerManager : Singleton<PlayerManager>
 {
-    public Player _player;
+    public Player player;
     public Player Player
     {
-        get { return _player; }
-        set { _player = value; }
+        get { return player; }
+        set { player = value; }
+    }
+
+    public PlayerController controller;
+    public PlayerCondition condition;
+
+
+    private void Start()
+    {
+        controller = GetComponent<PlayerController>();
+        condition = GetComponent<PlayerCondition>();
     }
 }

@@ -10,10 +10,10 @@ public enum UIState
 
 public class UIManager : Singleton<UIManager>
 {
-    [Header("Init UI")]
-    [SerializeField] private UIMainMenu uiMainMenu;
-    [SerializeField] private UIStatus uiStatus;
-    [SerializeField] private UIInventory uiInventory;
+    [Header("Init UI")]     // [SerializeField]?
+    public UIMainMenu uiMainMenu;
+    public UIStatus uiStatus;
+    private UIInventory uiInventory;
     UIState currentState;
 
     [Header("Buttons")]
@@ -22,8 +22,10 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Button inventoryButton;
 
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         uiMainMenu = GetComponentInChildren<UIMainMenu>(true);
         uiMainMenu.Init(this);
         uiStatus = GetComponentInChildren<UIStatus>(true);
@@ -31,10 +33,12 @@ public class UIManager : Singleton<UIManager>
         uiInventory = GetComponentInChildren<UIInventory>(true);
         uiInventory.Init(this);
         
-        menuButton.onClick.AddListener(OnClickMainMenu);
-        statusButton.onClick.AddListener(OnClickStatus);
-        inventoryButton.onClick.AddListener(OnClickInventory);
-    
+        menuButton.onClick.AddListener(OpenMainMenu);
+        statusButton.onClick.AddListener(OpenStatus);
+        inventoryButton.onClick.AddListener(OpenInventory);
+
+        //GameManager.Instance.SetData();
+
         ChangeState(UIState.MainMenu);
     }
 
@@ -47,17 +51,17 @@ public class UIManager : Singleton<UIManager>
     }
 
     // ButtonClick
-    void OnClickMainMenu()
+    void OpenMainMenu()
     {
         ChangeState(UIState.MainMenu);
     }
 
-    void OnClickStatus()
+    void OpenStatus()
     {
         ChangeState(UIState.Status);
     }
     
-    void OnClickInventory()
+    void OpenInventory()
     {
         ChangeState(UIState.Inventory);
     }

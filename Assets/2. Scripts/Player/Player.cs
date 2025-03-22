@@ -1,17 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Player : MonoBehaviour
+public class Player : Character
 {
-    public PlayerController controller;
-    public PlayerCondition condition;
+    private string description;
+    private int exp;
+    private int gold;
 
+    public string Description { get; private set; }
+    public int Exp { get; private set; }
+    public int Gold { get; private set; }
 
-    private void Awake()
+    public Player(string name, int level, int atk, int def, int hp, int critical, string description, int exp, int gold) : base(name, level, atk, def, hp, critical)
     {
-        PlayerManager.Instance.Player = this;
-        controller = GetComponent<PlayerController>();
-        condition = GetComponent <PlayerCondition>();
+        Description = description;
+        Exp = exp;
+        Gold = gold;
     }
 }
