@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
     {
         player = new Player("Skeleton", 1, 35, 40, 100, 25, "갑자기 평원에서 눈을 뜨게 된 평범한 해골.\n던전에 있는 집으로 가기 위해 모험을 떠난다.", 0, 10000);
 
+        UIManager.Instance.uiCommon.SetCommonUI(player);
         UIManager.Instance.uiStatus.SetStatusUI(player);
         UIManager.Instance.uiMainMenu.SetMainMenuUI(player);
     }

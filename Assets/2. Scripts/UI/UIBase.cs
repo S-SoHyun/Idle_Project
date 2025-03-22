@@ -1,5 +1,3 @@
-using System.Collections;
-using UnityEditor.Timeline;
 using UnityEngine;
 
 public abstract class UIBase : MonoBehaviour
@@ -16,5 +14,4 @@ public abstract class UIBase : MonoBehaviour
     {
         this.gameObject.SetActive(GetUIState() == state);
     }
-
 }

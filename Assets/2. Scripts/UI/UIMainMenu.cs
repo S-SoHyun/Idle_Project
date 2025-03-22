@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIMainMenu : UIBase
 {
@@ -22,17 +19,6 @@ public class UIMainMenu : UIBase
         levelText.text = $"Lv: {player.Level}";
         descText.text = player.Description.ToString();
     }
-
-
-
-
-
-
-
-
-
-
-
     protected override UIState GetUIState()
     {
         return UIState.MainMenu;

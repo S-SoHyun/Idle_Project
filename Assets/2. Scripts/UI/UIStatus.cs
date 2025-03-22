@@ -18,11 +18,6 @@ public class UIStatus : UIBase
         base.Init(uIManager);
     }
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         closeButton.onClick.AddListener(onClickCloseButton);

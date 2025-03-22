@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public enum UIState
 {
+    //Common,
     MainMenu,
     Status,
     Inventory,
@@ -11,6 +12,7 @@ public enum UIState
 public class UIManager : Singleton<UIManager>
 {
     [Header("Init UI")]     // [SerializeField]?
+    public UICommon uiCommon;
     public UIMainMenu uiMainMenu;
     public UIStatus uiStatus;
     private UIInventory uiInventory;
@@ -26,6 +28,8 @@ public class UIManager : Singleton<UIManager>
     {
         base.Awake();
 
+        uiCommon = GetComponentInChildren<UICommon>(true);
+        uiCommon.Init(this);
         uiMainMenu = GetComponentInChildren<UIMainMenu>(true);
         uiMainMenu.Init(this);
         uiStatus = GetComponentInChildren<UIStatus>(true);
@@ -36,8 +40,6 @@ public class UIManager : Singleton<UIManager>
         menuButton.onClick.AddListener(OpenMainMenu);
         statusButton.onClick.AddListener(OpenStatus);
         inventoryButton.onClick.AddListener(OpenInventory);
-
-        //GameManager.Instance.SetData();
 
         ChangeState(UIState.MainMenu);
     }
