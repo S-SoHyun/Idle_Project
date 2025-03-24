@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class UISlot : MonoBehaviour
 {
@@ -33,37 +32,35 @@ public class UISlot : MonoBehaviour
     {
         curItem = item;
         itemIcon.sprite = item.icon;
-        SetEquipItemUI(item);
+        SetEquipItemUI();
     }
 
-    public void RefreshUI(Item item)
+    public void RefreshUI()
     {
         //item = null;
-        equipIcon.gameObject.SetActive(item.isEquipped);
+        equipIcon.gameObject.SetActive(curItem.isEquipped);
     }
 
     void ItemEquip()
     {
         // 해당 아이템을 갖고와야 됨
-
-
-        SetEquipItemUI(curItem);
+        GameManager.Instance.player.Equip(curItem);
+        Debug.Log(GameManager.Instance.player.Atk);
+        SetEquipItemUI();
     }
 
-    void SetEquipItemUI(Item item)
+    void SetEquipItemUI()
     {
         //equipIcon.gameObject.SetActive(!item.isEquipped);
         //item.isEquipped = false;
 
-        if (item.isEquipped)
+        if (curItem.isEquipped)
         {
             equipIcon.gameObject.SetActive(true);
-            item.isEquipped = false;
         }
         else
         {
             equipIcon.gameObject.SetActive(false);
-            item.isEquipped = true;
         }
     }
 }

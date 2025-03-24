@@ -61,16 +61,16 @@ public class Character
             switch (item.stats[0].statType)
             {
                 case StatType.Attack:
-                    atk += item.stats[0].statValue;
+                    Atk += item.stats[0].statValue;
                     break;
                 case StatType.Defense:
-                    def += item.stats[0].statValue;
+                    Def += item.stats[0].statValue;
+                    break;
+                default:
                     break;
             }
-
             item.isEquipped = true;
             EquipChanged?.Invoke();
-
         }
     }
 
@@ -79,10 +79,10 @@ public class Character
         switch (item.stats[0].statType)
         {
             case StatType.Attack:
-                atk -= item.stats[0].statValue;
+                Atk -= item.stats[0].statValue;
                 break;
             case StatType.Defense:
-                def -= item.stats[0].statValue;
+                Def -= item.stats[0].statValue;
                 break;
         }
 
