@@ -16,4 +16,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 48e3b7749bf098243bf37df9c2f2acd6, type: 3}
   stats:
   - statType: 0
-    statValue: 10
+    statValue: 15
+  isEquipped: 0
+  equipPrefab: {fileID: 323333351367080586, guid: 87b744073f89d274ea9986018a77d4e4, type: 3}

@@ -17,3 +17,4 @@ MonoBehaviour:
   stats:
   - statType: 1
     statValue: 30
+  equipPrefab: {fileID: 2410114350040114610, guid: 4603d2cd3ffcb6e46add7daf3a524b6c, type: 3}

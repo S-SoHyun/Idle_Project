@@ -7,6 +7,7 @@ public enum UIState
     MainMenu,
     Status,
     Inventory,
+    Store
 }
 
 public class UIManager : Singleton<UIManager>
@@ -15,14 +16,15 @@ public class UIManager : Singleton<UIManager>
     public UICommon uiCommon;
     public UIMainMenu uiMainMenu;
     public UIStatus uiStatus;
-    private UIInventory uiInventory;
+    public UIInventory uiInventory;
+    public UIStore uiStore;
     UIState currentState;
 
     [Header("Buttons")]
     [SerializeField] private Button menuButton;
     [SerializeField] private Button statusButton;
     [SerializeField] private Button inventoryButton;
-
+    [SerializeField] private Button storeButton;
 
     protected override void Awake()
     {
@@ -36,10 +38,13 @@ public class UIManager : Singleton<UIManager>
         uiStatus.Init(this);
         uiInventory = GetComponentInChildren<UIInventory>(true);
         uiInventory.Init(this);
+        uiStore = GetComponentInChildren<UIStore>(true);
+        uiStore.Init(this);
         
         menuButton.onClick.AddListener(OpenMainMenu);
         statusButton.onClick.AddListener(OpenStatus);
         inventoryButton.onClick.AddListener(OpenInventory);
+        storeButton.onClick.AddListener(OpenStore);
 
         ChangeState(UIState.MainMenu);
     }
@@ -50,6 +55,7 @@ public class UIManager : Singleton<UIManager>
         uiMainMenu.SetUIActive(currentState);
         uiStatus.SetUIActive(currentState);
         uiInventory.SetUIActive(currentState);
+        uiStore.SetUIActive(currentState);
     }
 
     // ButtonClick
@@ -66,6 +72,11 @@ public class UIManager : Singleton<UIManager>
     void OpenInventory()
     {
         ChangeState(UIState.Inventory);
+    }
+
+    void OpenStore()
+    {
+        ChangeState(UIState.Store);
     }
 
     //void OnCickStage()

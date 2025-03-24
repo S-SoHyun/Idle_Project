@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum StatType
 {
@@ -22,7 +21,12 @@ public class StatEntry
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class Item : ScriptableObject
 {
+    [Header("Info")]
     public string itemName;
     public Sprite icon;
     public List<StatEntry> stats;
+
+    [Header("Equip")]
+    public bool isEquipped;
+    public GameObject equipPrefab;
 }

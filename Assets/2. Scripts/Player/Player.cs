@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Player : Character
 {
     private string description;
@@ -8,7 +10,8 @@ public class Player : Character
     public int Exp { get; private set; }
     public int Gold { get; private set; }
 
-    public Player(string name, int level, int atk, int def, int hp, int critical, string description, int exp, int gold) : base(name, level, atk, def, hp, critical)
+    public Player(string name, int level, int atk, int def, int hp, int critical, List<Item> inventory, 
+        string description, int exp, int gold) : base(name, level, atk, def, hp, critical, inventory)
     {
         Description = description;
         Exp = exp;

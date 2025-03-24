@@ -19,3 +19,4 @@ MonoBehaviour:
     statValue: 40
   - statType: 3
     statValue: 50
+  equipPrefab: {fileID: 2939461966237491692, guid: 6dc5bbadc807ebe4d926b32d4cee4f6f, type: 3}

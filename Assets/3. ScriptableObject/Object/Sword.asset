@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25d2a33d6e7ca2d49941d49eec262bd8, type: 3}
-  m_Name: Scythe
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  itemName: "\uB0AB"
-  icon: {fileID: 21300000, guid: 9e33f63430e1b7f42933eb863a7222c3, type: 3}
+  itemName: "\uAC80"
+  icon: {fileID: 21300000, guid: 17534a6002785da48b009dd71cebea06, type: 3}
   stats:
   - statType: 0
-    statValue: 20
-  - statType: 3
-    statValue: 20
-  equipPrefab: {fileID: 4926703055965546900, guid: bc956f77213138048b30d54ab626e70a, type: 3}
+    statValue: 10
+  isEquipped: 0
+  equipPrefab: {fileID: 8586107169185733526, guid: 2e8371f0c43fe224293b8b3da2ba628f, type: 3}

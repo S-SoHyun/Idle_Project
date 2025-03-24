@@ -7,12 +7,7 @@ public class UIInventory : UIBase
     [SerializeField] UISlot slotPrefab;
     [SerializeField] Transform slotsContent;
     List<UISlot> slots = new List<UISlot>();
-    List<Item> inventoryItems = new List<Item>();
-
-    // temp
-    public Item dagger;
-    public Item shield;
-    public Item hammer;
+    List<Item> inventoryItems;
 
 
     public override void Init(UIManager uIManager)
@@ -22,11 +17,7 @@ public class UIInventory : UIBase
 
     private void Start()
     {
-        // temp
-        inventoryItems.Add(dagger);
-        inventoryItems.Add(shield);
-        inventoryItems.Add(hammer);
-
+        inventoryItems = GameManager.Instance.player.Inventory;
 
         InitInventoryUI();
     }
@@ -36,7 +27,7 @@ public class UIInventory : UIBase
         for (int i = 0; i < inventoryItems.Count ; i++)
         {
             UISlot newSlot = Instantiate(slotPrefab, slotsContent);
-            newSlot.SetItem(inventoryItems[i]);
+            newSlot.SetItem(inventoryItems[i]);     // 아이템 아이콘, equipIcon 세팅
             slots.Add(newSlot);
         }
     }
