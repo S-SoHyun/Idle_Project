@@ -17,11 +17,13 @@ public class UIInventory : UIBase
 
     public void SetInventoryUI(Player player)
     {
+        GameManager.Instance.player.InventoryChanged += InventoryChanged;
+
         inventoryItems = player.Inventory;
         InitInventoryUI();
     }
 
-    private void InitInventoryUI()  
+    private void InitInventoryUI()
     {
         for (int i = 0; i < inventoryItems.Count ; i++)
         {
@@ -29,6 +31,18 @@ public class UIInventory : UIBase
             newSlot.SetItem(inventoryItems[i]);     // 아이템 아이콘, equipIcon 세팅
             slots.Add(newSlot);
         }
+    }
+
+    void InventoryChanged()
+    {
+        AddInventory();
+    }
+
+    void AddInventory()     // 리스트 마지막에 있는 아이템 세팅
+    {
+        UISlot newSlot = Instantiate(slotPrefab, slotsContent);
+        newSlot.SetItem(inventoryItems[inventoryItems.Count-1]);     // 아이템 아이콘, equipIcon 세팅
+        slots.Add(newSlot);
     }
 
     protected override UIState GetUIState()

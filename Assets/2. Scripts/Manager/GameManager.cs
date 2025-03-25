@@ -21,7 +21,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] ScriptableItem shieldSo;
     [SerializeField] ScriptableItem daggerSo;
     [SerializeField] ScriptableItem hammerSo;
-
+    List<CommonItem> storeItems;
 
     protected override void Awake()
     {
@@ -38,7 +38,6 @@ public class GameManager : Singleton<GameManager>
 
         player = new Player("Skeleton", 1, 35, 40, 100, 25, inventory, characterDescription, 0, 10000);
         Debug.Log(player.Inventory.Count);
-        player.AddItem(hammer);     // temp
     }
 
     void SetItemData()
@@ -49,6 +48,8 @@ public class GameManager : Singleton<GameManager>
         shield= new CommonItem(shieldSo);
         dagger = new CommonItem(daggerSo);
         hammer = new CommonItem(hammerSo);
+
+        storeItems = new List<CommonItem>() { axe, scythe, shield, dagger, hammer };
     }
 
     void SetUI()
@@ -57,5 +58,6 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.UiStatus.SetStatusUI(player);
         UIManager.Instance.UiMainMenu.SetMainMenuUI(player);
         UIManager.Instance.UiInventory.SetInventoryUI(player);
+        UIManager.Instance.UIStore.SetStoreUI(storeItems);
     }
 }

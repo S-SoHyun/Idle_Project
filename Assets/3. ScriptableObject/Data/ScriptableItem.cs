@@ -27,6 +27,7 @@ public class ScriptableItem : ScriptableObject
     public string itemName;
     public Sprite icon;
     public List<StatEntry> stats;
+    public int requiredGold;
 }
 
 // 불변값 + 가변값 넣어둘 아이템 클래스

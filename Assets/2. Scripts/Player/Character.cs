@@ -32,8 +32,6 @@ public class Character
 
 
     // METHOD
-    public Action addItem;
-
     public void AddItem(CommonItem item)
     {
         Inventory.Add(item);

@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class UIStatus : UIBase
 {
-    Player player;
-
     [SerializeField] private TextMeshProUGUI atkText;
     [SerializeField] private TextMeshProUGUI defText;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -30,8 +28,7 @@ public class UIStatus : UIBase
 
     void EquipChanged()
     {
-        player = GameManager.Instance.player;
-        SetStatusUI(player);
+        SetStatusUI(GameManager.Instance.player);
     }
 
     public void SetStatusUI(Player player)

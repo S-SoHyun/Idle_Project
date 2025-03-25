@@ -19,3 +19,4 @@ MonoBehaviour:
     statValue: 20
   - statType: 3
     statValue: 50
+  requiredGold: 2000

@@ -27,8 +27,15 @@ public class UICommon : UIBase
 
     public void SetCommonUI(Player player)
     {
+        GameManager.Instance.player.GoldChanged += GoldChanged;
+
         string curGold = player.Gold.ToString("N0");
         goldText.text = curGold;
+    }
+
+    public void GoldChanged()
+    {
+        SetCommonUI(GameManager.Instance.player);
     }
 
     void OpenMainMenu()
@@ -50,7 +57,6 @@ public class UICommon : UIBase
     {
         UIManager.Instance.ChangeState(UIState.Store);
     }
-
     protected override UIState GetUIState()
     {
         return UIState.Status;
