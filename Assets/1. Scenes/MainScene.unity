@@ -4175,15 +4175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b35238befb5814eb458f1b4a109051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiCommon: {fileID: 0}
+  uiCommon: {fileID: 1956956143}
   uiMainMenu: {fileID: 339737076}
   uiStatus: {fileID: 252003931}
   uiInventory: {fileID: 1277597951}
   uiStore: {fileID: 393656920}
-  menuButton: {fileID: 609595842}
-  statusButton: {fileID: 1064504567}
-  inventoryButton: {fileID: 1673355058}
-  storeButton: {fileID: 1086321887}
 --- !u!114 &1300611041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5568,6 +5564,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldText: {fileID: 471235804}
+  menuButton: {fileID: 609595842}
+  statusButton: {fileID: 1064504567}
+  inventoryButton: {fileID: 1673355058}
+  storeButton: {fileID: 1086321887}
 --- !u!1 &2046630793
 GameObject:
   m_ObjectHideFlags: 0

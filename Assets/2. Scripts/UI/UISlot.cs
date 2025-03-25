@@ -23,11 +23,6 @@ public class UISlot : MonoBehaviour
         equipButton.onClick.AddListener(ItemEquip);
     }
 
-    private void OnEnable()
-    {
-
-    }
-
     public void SetItem(Item item)  // 슬롯에 인벤토리에 있는 아이템 넣기
     {
         curItem = item;

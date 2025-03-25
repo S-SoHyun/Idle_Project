@@ -1,9 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum UIState
 {
-    //Common,
     MainMenu,
     Status,
     Inventory,
@@ -12,39 +10,44 @@ public enum UIState
 
 public class UIManager : Singleton<UIManager>
 {
-    [Header("Init UI")]     // [SerializeField]?
-    public UICommon uiCommon;
-    public UIMainMenu uiMainMenu;
-    public UIStatus uiStatus;
-    public UIInventory uiInventory;
-    public UIStore uiStore;
+    [SerializeField] private UICommon uiCommon;
+    [SerializeField] private UIMainMenu uiMainMenu;
+    [SerializeField] private UIStatus uiStatus;
+    [SerializeField] private UIInventory uiInventory;
+    [SerializeField] private UIStore uiStore;
+
+    public UICommon UiCommon { get; private set; }
+    public UIMainMenu UiMainMenu { get; private set; }
+    public UIStatus UiStatus { get; private set; }
+    public UIInventory UiInventory { get; private set; }
+    public UIStore UIStore { get; private set; }
+
     UIState currentState;
 
-    [Header("Buttons")]
-    [SerializeField] private Button menuButton;
-    [SerializeField] private Button statusButton;
-    [SerializeField] private Button inventoryButton;
-    [SerializeField] private Button storeButton;
 
     protected override void Awake()
     {
         base.Awake();
 
         uiCommon = GetComponentInChildren<UICommon>(true);
+        UiCommon = uiCommon;
         uiCommon.Init(this);
-        uiMainMenu = GetComponentInChildren<UIMainMenu>(true);
-        uiMainMenu.Init(this);
-        uiStatus = GetComponentInChildren<UIStatus>(true);
-        uiStatus.Init(this);
-        uiInventory = GetComponentInChildren<UIInventory>(true);
-        uiInventory.Init(this);
-        uiStore = GetComponentInChildren<UIStore>(true);
-        uiStore.Init(this);
         
-        menuButton.onClick.AddListener(OpenMainMenu);
-        statusButton.onClick.AddListener(OpenStatus);
-        inventoryButton.onClick.AddListener(OpenInventory);
-        storeButton.onClick.AddListener(OpenStore);
+        uiMainMenu = GetComponentInChildren<UIMainMenu>(true);
+        UiMainMenu = uiMainMenu;
+        uiMainMenu.Init(this);
+        
+        uiStatus = GetComponentInChildren<UIStatus>(true);
+        UiStatus = uiStatus;
+        uiStatus.Init(this);
+        
+        uiInventory = GetComponentInChildren<UIInventory>(true);
+        UiInventory = uiInventory;
+        uiInventory.Init(this);
+        
+        uiStore = GetComponentInChildren<UIStore>(true);
+        UIStore = uiStore;
+        uiStore.Init(this);
 
         ChangeState(UIState.MainMenu);
     }
@@ -57,30 +60,4 @@ public class UIManager : Singleton<UIManager>
         uiInventory.SetUIActive(currentState);
         uiStore.SetUIActive(currentState);
     }
-
-    // ButtonClick
-    void OpenMainMenu()
-    {
-        ChangeState(UIState.MainMenu);
-    }
-
-    void OpenStatus()
-    {
-        ChangeState(UIState.Status);
-    }
-    
-    void OpenInventory()
-    {
-        ChangeState(UIState.Inventory);
-    }
-
-    void OpenStore()
-    {
-        ChangeState(UIState.Store);
-    }
-
-    //void OnCickStage()
-    //{
-        
-    //}
 }

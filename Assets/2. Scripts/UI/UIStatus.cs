@@ -23,12 +23,6 @@ public class UIStatus : UIBase
         closeButton.onClick.AddListener(onClickCloseButton);
         GameManager.Instance.player.EquipChanged += EquipChanged;
     }
-
-    private void OnEnable()
-    {
-        //SetStatusUI(player);
-    }
-
     void onClickCloseButton()
     {
         UIManager.Instance.ChangeState(UIState.MainMenu);

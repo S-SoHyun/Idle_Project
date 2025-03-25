@@ -1,24 +1,8 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Character
 {
-    // INFO
-    private string name;
-    private int level;
-
-    // STAT
-    private int atk;
-    private int def;
-    private int hp;
-    private int critical;
-
-    private List<Item> inventory;
-
-    public Action EquipChanged;
-
-    // PROPERTY
     public string Name { get; private set; }
     public int Level { get; private set; }
 
@@ -29,7 +13,9 @@ public class Character
 
     public List<Item> Inventory { get; private set; }
 
-    // CONSTRUCTOR
+    public Action EquipChanged;
+
+
     public Character(string name, int level, int atk, int def, int hp, int critical, List<Item> inventory)
     {
         Name = name;
@@ -45,7 +31,7 @@ public class Character
 
     public void AddItem(Item item)
     {
-        inventory.Add(item);
+        Inventory.Add(item);
     }
 
     public Action addItem;
@@ -90,4 +76,3 @@ public class Character
         EquipChanged?.Invoke();
     }
 }
-

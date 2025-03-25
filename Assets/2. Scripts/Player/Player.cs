@@ -2,10 +2,6 @@ using System.Collections.Generic;
 
 public class Player : Character
 {
-    private string description;
-    private int exp;
-    private int gold;
-
     public string Description { get; private set; }
     public int Exp { get; private set; }
     public int Gold { get; private set; }
