@@ -51,7 +51,6 @@ public class UICommon : UIBase
         UIManager.Instance.ChangeState(UIState.Store);
     }
 
-
     protected override UIState GetUIState()
     {
         return UIState.Status;

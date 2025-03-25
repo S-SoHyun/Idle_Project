@@ -4932,11 +4932,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bd214e1786fa94eae840f30054fecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 11400000, guid: 8ba4b323147991d4d85684ae8bf4cff3, type: 2}
-  scythe: {fileID: 11400000, guid: 5119aefe32ae1a0448661a9e945e35ac, type: 2}
-  shield: {fileID: 11400000, guid: 4bc2afd967641d049bebd5f4cd52a75e, type: 2}
-  dagger: {fileID: 11400000, guid: 00a19696f4b08b444b8998afd40adc56, type: 2}
-  hammer: {fileID: 11400000, guid: fb9db7d5e34e76d489453c5c17b8e8ad, type: 2}
+  swordSo: {fileID: 11400000, guid: 8ba4b323147991d4d85684ae8bf4cff3, type: 2}
+  axeSo: {fileID: 11400000, guid: dbb3f212122f5054ba7dcc7ac74d574e, type: 2}
+  scytheSo: {fileID: 11400000, guid: 5119aefe32ae1a0448661a9e945e35ac, type: 2}
+  shieldSo: {fileID: 11400000, guid: 4bc2afd967641d049bebd5f4cd52a75e, type: 2}
+  daggerSo: {fileID: 11400000, guid: 00a19696f4b08b444b8998afd40adc56, type: 2}
+  hammerSo: {fileID: 11400000, guid: fb9db7d5e34e76d489453c5c17b8e8ad, type: 2}
 --- !u!4 &1641948718
 Transform:
   m_ObjectHideFlags: 0

@@ -21,8 +21,8 @@ public class UIStatus : UIBase
     private void Start()
     {
         closeButton.onClick.AddListener(onClickCloseButton);
-        GameManager.Instance.Player.EquipChanged += EquipChanged;
     }
+
     void onClickCloseButton()
     {
         UIManager.Instance.ChangeState(UIState.MainMenu);
@@ -30,12 +30,14 @@ public class UIStatus : UIBase
 
     void EquipChanged()
     {
-        player = GameManager.Instance.Player;
+        player = GameManager.Instance.player;
         SetStatusUI(player);
     }
 
     public void SetStatusUI(Player player)
     {
+        GameManager.Instance.player.EquipChanged += EquipChanged;
+
         atkText.text = $"공격력\n{player.Atk}";
         defText.text = $"방어력\n{player.Def}";
         hpText.text = $"체력\n{player.Hp}";

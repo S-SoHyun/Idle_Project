@@ -3,44 +3,59 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public Player Player { get; private set; }
+    // PLAYER
+    public Player player { get; private set; }
+    List<CommonItem> inventory;
 
-    List<Item> inventory;
-    
-    [SerializeField] Item sword;
-
-    // temp
-    [SerializeField] Item scythe;
-    [SerializeField] Item shield;
-    [SerializeField] Item dagger;
-    [SerializeField] Item hammer;
+    //ITEM
+    CommonItem sword;
+    CommonItem axe;
+    CommonItem scythe;
+    CommonItem shield;
+    CommonItem dagger;
+    CommonItem hammer;
+        
+    [SerializeField] ScriptableItem swordSo;
+    [SerializeField] ScriptableItem axeSo;
+    [SerializeField] ScriptableItem scytheSo;
+    [SerializeField] ScriptableItem shieldSo;
+    [SerializeField] ScriptableItem daggerSo;
+    [SerializeField] ScriptableItem hammerSo;
 
 
     protected override void Awake()
     {
         base.Awake();
-
-        SetData();
-    }
-
-    void Start()
-    {
-
-    }
-
-    void SetData()
-    {
-        inventory = new List<Item>() { sword, scythe, shield, dagger, hammer };     // 기본 아이템 = 검
-        Player = new Player("Skeleton", 1, 35, 40, 100, 25, inventory, 
-            "갑자기 평원에서 눈을 뜨게 된 평범한 해골.\n던전에 있는 집으로 가기 위해 모험을 떠난다.", 0, 10000);
-
+        SetItemData();
+        SetPlayerData();
         SetUI();
+    }
+
+    void SetPlayerData()
+    {
+        string characterDescription = "갑자기 평원에서 눈을 뜨게 된 평범한 해골.\n던전에 있는 집으로 가기 위해 모험을 떠난다.";    // 캐릭터 설명
+        inventory = new List<CommonItem>() { sword };                                                                              // 기본 아이템 = 검
+
+        player = new Player("Skeleton", 1, 35, 40, 100, 25, inventory, characterDescription, 0, 10000);
+        Debug.Log(player.Inventory.Count);
+        player.AddItem(hammer);     // temp
+    }
+
+    void SetItemData()
+    {
+        sword = new CommonItem(swordSo);
+        axe = new CommonItem(axeSo);
+        scythe = new CommonItem(scytheSo);
+        shield= new CommonItem(shieldSo);
+        dagger = new CommonItem(daggerSo);
+        hammer = new CommonItem(hammerSo);
     }
 
     void SetUI()
     {
-        UIManager.Instance.UiCommon.SetCommonUI(Player);
-        UIManager.Instance.UiStatus.SetStatusUI(Player);
-        UIManager.Instance.UiMainMenu.SetMainMenuUI(Player);
+        UIManager.Instance.UiCommon.SetCommonUI(player);
+        UIManager.Instance.UiStatus.SetStatusUI(player);
+        UIManager.Instance.UiMainMenu.SetMainMenuUI(player);
+        UIManager.Instance.UiInventory.SetInventoryUI(player);
     }
 }

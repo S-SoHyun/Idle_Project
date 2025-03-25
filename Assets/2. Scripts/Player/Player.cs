@@ -6,7 +6,7 @@ public class Player : Character
     public int Exp { get; private set; }
     public int Gold { get; private set; }
 
-    public Player(string name, int level, int atk, int def, int hp, int critical, List<Item> inventory, 
+    public Player(string name, int level, int atk, int def, int hp, int critical, List<CommonItem> inventory, 
         string description, int exp, int gold) : base(name, level, atk, def, hp, critical, inventory)
     {
         Description = description;

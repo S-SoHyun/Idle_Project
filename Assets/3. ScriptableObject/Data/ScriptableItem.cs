@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public enum StatType
 {
     Attack,
@@ -8,7 +9,6 @@ public enum StatType
     Health,
     Critical
 }
-
 
 [System.Serializable]
 public class StatEntry
@@ -18,15 +18,26 @@ public class StatEntry
 }
 
 
+//불변값 넣어둘 SO
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
-public class Item : ScriptableObject
+
+public class ScriptableItem : ScriptableObject
 {
     [Header("Info")]
     public string itemName;
     public Sprite icon;
     public List<StatEntry> stats;
+}
 
-    [Header("Equip")]
-    public bool isEquipped;
-    public GameObject equipPrefab;
+// 불변값 + 가변값 넣어둘 아이템 클래스
+public class CommonItem
+{
+    public ScriptableItem ScriptableItem { get; private set; }
+    public bool IsEquipped;
+
+    public CommonItem(ScriptableItem item)
+    {
+        ScriptableItem = item;
+        IsEquipped = false;
+    }
 }

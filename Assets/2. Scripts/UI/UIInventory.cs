@@ -5,8 +5,9 @@ public class UIInventory : UIBase
 {
     [SerializeField] UISlot slotPrefab;
     [SerializeField] Transform slotsContent;
+
     List<UISlot> slots = new List<UISlot>();
-    List<Item> inventoryItems;
+    List<CommonItem> inventoryItems;
 
 
     public override void Init(UIManager uIManager)
@@ -14,9 +15,9 @@ public class UIInventory : UIBase
         base.Init(uIManager);
     }
 
-    private void Start()
+    public void SetInventoryUI(Player player)
     {
-        inventoryItems = GameManager.Instance.Player.Inventory;
+        inventoryItems = player.Inventory;
         InitInventoryUI();
     }
 

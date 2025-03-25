@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class Character
 {
+    //FIELD
     public string Name { get; private set; }
     public int Level { get; private set; }
 
@@ -11,12 +12,12 @@ public class Character
     public int Hp { get; private set; }
     public int Critical { get; private set; }
 
-    public List<Item> Inventory { get; private set; }
+    public List<CommonItem> Inventory { get; private set; }
 
     public Action EquipChanged;
 
-
-    public Character(string name, int level, int atk, int def, int hp, int critical, List<Item> inventory)
+    // CONSTRUCTOR
+    public Character(string name, int level, int atk, int def, int hp, int critical, List<CommonItem> inventory)
     {
         Name = name;
         Level = level;
@@ -29,50 +30,67 @@ public class Character
         Inventory = inventory;
     }
 
-    public void AddItem(Item item)
+
+    // METHOD
+    public Action addItem;
+
+    public void AddItem(CommonItem item)
     {
         Inventory.Add(item);
     }
 
-    public Action addItem;
-
-    public void Equip(Item item)
+    public void Equip(CommonItem item)
     {
-        if (item.isEquipped)
+        if (item.IsEquipped)
         {
             UnEquip(item);
         }
         else
-        {
-            switch (item.stats[0].statType)
+        {   // stats List에 있는 stat을 순회. 각 스탯 타입에 따라 플레이어 스탯에 value 추가
+            foreach (StatEntry stat in item.ScriptableItem.stats)
             {
-                case StatType.Attack:
-                    Atk += item.stats[0].statValue;
-                    break;
-                case StatType.Defense:
-                    Def += item.stats[0].statValue;
-                    break;
-                default:
-                    break;
+                switch (stat.statType)
+                {
+                    case StatType.Attack:
+                        Atk += stat.statValue;
+                        break;
+                    case StatType.Defense:
+                        Def += stat.statValue;
+                        break;
+                    case StatType.Health:
+                        Hp += stat.statValue;
+                        break;
+                    case StatType.Critical:
+                        Critical += stat.statValue;
+                        break;
+                }
             }
-            item.isEquipped = true;
+            item.IsEquipped = true;
             EquipChanged?.Invoke();
         }
     }
 
-    public void UnEquip(Item item)
+    public void UnEquip(CommonItem item)
     {
-        switch (item.stats[0].statType)
+        foreach (StatEntry stat in item.ScriptableItem.stats)
         {
-            case StatType.Attack:
-                Atk -= item.stats[0].statValue;
-                break;
-            case StatType.Defense:
-                Def -= item.stats[0].statValue;
-                break;
+            switch (stat.statType)
+            {
+                case StatType.Attack:
+                    Atk -= stat.statValue;
+                    break;
+                case StatType.Defense:
+                    Def -= stat.statValue;
+                    break;
+                case StatType.Health:
+                    Hp -= stat.statValue;
+                    break;
+                case StatType.Critical:
+                    Critical -= stat.statValue;
+                    break;
+            }
         }
-
-        item.isEquipped = false;
+        item.IsEquipped = false;
         EquipChanged?.Invoke();
     }
 }

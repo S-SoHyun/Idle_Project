@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25d2a33d6e7ca2d49941d49eec262bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ca1d17d9ae4f8e4e8f881c878b47d4b, type: 3}
   m_Name: Scythe
   m_EditorClassIdentifier: 
-  itemName: "\uB0AB"
+  itemName: Scythe
   icon: {fileID: 21300000, guid: 9e33f63430e1b7f42933eb863a7222c3, type: 3}
   stats:
   - statType: 0
     statValue: 20
   - statType: 3
-    statValue: 20
-  equipPrefab: {fileID: 4926703055965546900, guid: bc956f77213138048b30d54ab626e70a, type: 3}
+    statValue: 50
