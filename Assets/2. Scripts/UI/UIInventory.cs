@@ -16,8 +16,7 @@ public class UIInventory : UIBase
 
     private void Start()
     {
-        inventoryItems = GameManager.Instance.player.Inventory;
-
+        inventoryItems = GameManager.Instance.Player.Inventory;
         InitInventoryUI();
     }
 

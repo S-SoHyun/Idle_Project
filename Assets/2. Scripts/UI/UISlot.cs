@@ -6,8 +6,6 @@ public class UISlot : MonoBehaviour
 {
     Item curItem;
 
-    UIInventory uiInventory;
-
     private Button equipButton;
     [SerializeField] private Image itemIcon;
     [SerializeField] private Image equipIcon;
@@ -39,8 +37,8 @@ public class UISlot : MonoBehaviour
     void ItemEquip()
     {
         // 해당 아이템을 갖고와야 됨
-        GameManager.Instance.player.Equip(curItem);
-        Debug.Log(GameManager.Instance.player.Atk);
+        GameManager.Instance.Player.Equip(curItem);
+        Debug.Log(GameManager.Instance.Player.Atk);
         SetEquipItemUI();
     }
 

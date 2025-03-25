@@ -21,7 +21,7 @@ public class UIStatus : UIBase
     private void Start()
     {
         closeButton.onClick.AddListener(onClickCloseButton);
-        GameManager.Instance.player.EquipChanged += EquipChanged;
+        GameManager.Instance.Player.EquipChanged += EquipChanged;
     }
     void onClickCloseButton()
     {
@@ -30,7 +30,7 @@ public class UIStatus : UIBase
 
     void EquipChanged()
     {
-        player = GameManager.Instance.player;
+        player = GameManager.Instance.Player;
         SetStatusUI(player);
     }
 

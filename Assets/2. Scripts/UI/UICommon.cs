@@ -27,9 +27,8 @@ public class UICommon : UIBase
 
     public void SetCommonUI(Player player)
     {
-        goldText.text = player.Gold.ToString();
-
-        // 천단위마다 컴마 붙이기
+        string curGold = player.Gold.ToString("N0");
+        goldText.text = curGold;
     }
 
     void OpenMainMenu()
