@@ -8,19 +8,21 @@ public class GameManager : Singleton<GameManager>
     List<CommonItem> inventory;
 
     //ITEM
+    [Header("Items")]
     CommonItem sword;
     CommonItem axe;
     CommonItem scythe;
     CommonItem shield;
     CommonItem dagger;
     CommonItem hammer;
-        
+
     [SerializeField] ScriptableItem swordSo;
     [SerializeField] ScriptableItem axeSo;
     [SerializeField] ScriptableItem scytheSo;
     [SerializeField] ScriptableItem shieldSo;
     [SerializeField] ScriptableItem daggerSo;
     [SerializeField] ScriptableItem hammerSo;
+
     List<CommonItem> storeItems;
 
     protected override void Awake()
@@ -31,6 +33,9 @@ public class GameManager : Singleton<GameManager>
         SetUI();
     }
 
+    /// <summary>
+    /// 플레이어 데이터 세팅
+    /// </summary>
     void SetPlayerData()
     {
         string characterDescription = "갑자기 평원에서 눈을 뜨게 된 평범한 해골.\n던전에 있는 집으로 가기 위해 모험을 떠난다.";    // 캐릭터 설명
@@ -40,6 +45,9 @@ public class GameManager : Singleton<GameManager>
         Debug.Log(player.Inventory.Count);
     }
 
+    /// <summary>
+    /// 아이템 데이터 세팅
+    /// </summary>
     void SetItemData()
     {
         sword = new CommonItem(swordSo);
@@ -52,6 +60,9 @@ public class GameManager : Singleton<GameManager>
         storeItems = new List<CommonItem>() { axe, scythe, shield, dagger, hammer };
     }
 
+    /// <summary>
+    /// UI 초기 세팅
+    /// </summary>
     void SetUI()
     {
         UIManager.Instance.UiCommon.SetCommonUI(player);

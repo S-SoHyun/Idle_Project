@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 
+
+/// <summary>
+/// 플레이어 클래스
+/// </summary>
 public class Player : Character
 {
     public string Description { get; private set; }
@@ -18,6 +22,10 @@ public class Player : Character
     public Action GoldChanged;
     public Action InventoryChanged;
 
+    /// <summary>
+    /// 아이템 구매
+    /// </summary>
+    /// <param name="item"></param>
     public void Buy(CommonItem item)
     {
         Gold -= item.ScriptableItem.requiredGold;

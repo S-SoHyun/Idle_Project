@@ -2,10 +2,10 @@ using UnityEngine;
 
 public enum UIState
 {
-    MainMenu,
-    Status,
-    Inventory,
-    Store
+    MainMenu,       // 메인메뉴창
+    Status,         // 상태창
+    Inventory,      // 인벤토리창
+    Store           // 상점창
 }
 
 public class UIManager : Singleton<UIManager>
@@ -49,9 +49,12 @@ public class UIManager : Singleton<UIManager>
         UIStore = uiStore;
         uiStore.Init(this);
 
-        ChangeState(UIState.MainMenu);
+        ChangeState(UIState.MainMenu);      // 시작 = 메인메뉴창
     }
 
+    /// <summary>
+    /// UI 활성화 여부 바꾸는 메서드
+    /// </summary>
     public void ChangeState(UIState state)
     {
         currentState = state;

@@ -1,5 +1,9 @@
 using UnityEngine;
 
+
+/// <summary>
+/// ¡¶≥ ∏Ø ΩÃ±€≈Ê
+/// </summary>
 public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
     private static T _instance;

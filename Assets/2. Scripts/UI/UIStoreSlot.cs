@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIStoreSlot : MonoBehaviour
 {
-    CommonItem curItem;
+    CommonItem curItem;                                 // 슬롯이 담고 있는 아이템
 
     private Button buyButton;
     [SerializeField] private TextMeshProUGUI nameText;
@@ -14,9 +14,7 @@ public class UIStoreSlot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI goldText;
 
     [SerializeField] private Image itemIcon;
-    [SerializeField] private GameObject soldPanel;
-
-    List<CommonItem> storeItems;
+    [SerializeField] private GameObject soldPanel;      // 판매됐음을 보여줄 패널
 
     public Action GoldChanged;
 
@@ -26,13 +24,21 @@ public class UIStoreSlot : MonoBehaviour
         buyButton.onClick.AddListener(BuyItem);
     }
 
-    public void SetItem(CommonItem item)  // 슬롯에 인벤토리에 있는 아이템 넣기
+    /// <summary>
+    /// 슬롯에 상점 아이템 넣기
+    /// </summary>
+    /// <param name="item"></param>
+    public void SetItem(CommonItem item)  
     {
         curItem = item;
         itemIcon.sprite = item.ScriptableItem.icon;
         SetTextUI(item);
     }
 
+    /// <summary>
+    /// 아이템 이름, 스탯, 필요 골드 텍스트 보여주는 메서드
+    /// </summary>
+    /// <param name="item"></param>
     void SetTextUI(CommonItem item)
     {
         List<StatEntry> stats = item.ScriptableItem.stats;
@@ -48,19 +54,18 @@ public class UIStoreSlot : MonoBehaviour
         goldText.text = $"$ {item.ScriptableItem.requiredGold.ToString("N0")}";
     }
 
+    /// <summary>
+    /// 아이템 구매
+    /// </summary>
     void BuyItem()
     {
         Player player = GameManager.Instance.player;
-        // 플레이어의 돈이 아이템의 골드보다 높으면 플레이어의 인벤토리에 추가 후 플레이어 -골드 , 없으면 그냥 리턴
-        // 사면 soldPanel 활성화
         if (player.Gold >= curItem.ScriptableItem.requiredGold)
         {
             player.Buy(curItem);
             soldPanel.SetActive(true);
         }
         else
-        {
             return;
-        }
     }
 }

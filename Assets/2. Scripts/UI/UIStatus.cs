@@ -21,16 +21,25 @@ public class UIStatus : UIBase
         closeButton.onClick.AddListener(onClickCloseButton);
     }
 
+    /// <summary>
+    /// close 버튼을 누르면 메인 메뉴 창이 나옴
+    /// </summary>
     void onClickCloseButton()
     {
         UIManager.Instance.ChangeState(UIState.MainMenu);
     }
 
+    /// <summary>
+    /// 인벤토리에서 장착 여부가 바뀌면 새로고침
+    /// </summary>
     void EquipChanged()
     {
         SetStatusUI(GameManager.Instance.player);
     }
 
+    /// <summary>
+    /// 플레이어의 스탯을 보여줌
+    /// </summary>
     public void SetStatusUI(Player player)
     {
         GameManager.Instance.player.EquipChanged += EquipChanged;

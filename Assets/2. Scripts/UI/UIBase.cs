@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 개별 UI들의 기본이 될 추상 클래스
+/// </summary>
 public abstract class UIBase : MonoBehaviour
 {
     protected UIManager uiManager;

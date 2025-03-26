@@ -13,6 +13,9 @@ public class UIMainMenu : UIBase
         base.Init(uIManager);
     }
 
+    /// <summary>
+    /// 플레이어의 이름, 레벨, 설명 세팅
+    /// </summary>
     public void SetMainMenuUI(Player player)
     {
         nameText.text = player.Name.ToString();

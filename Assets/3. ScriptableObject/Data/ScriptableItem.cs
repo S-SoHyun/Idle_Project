@@ -4,12 +4,15 @@ using UnityEngine;
 
 public enum StatType
 {
-    Attack,
-    Defense,
-    Health,
-    Critical
+    Attack,     // 공격력
+    Defense,    // 방어력
+    Health,     // 체력
+    Critical    // 치명타
 }
 
+/// <summary>
+/// 스탯을 정의하는 클래스
+/// </summary>
 [System.Serializable]
 public class StatEntry
 {
@@ -18,7 +21,9 @@ public class StatEntry
 }
 
 
-//불변값 넣어둘 SO
+/// <summary>
+/// 불변값을 넣어둘 스크립터블 오브젝트
+/// </summary>
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 
 public class ScriptableItem : ScriptableObject
@@ -30,7 +35,9 @@ public class ScriptableItem : ScriptableObject
     public int requiredGold;
 }
 
-// 불변값 + 가변값 넣어둘 아이템 클래스
+/// <summary>
+/// 불변값, 가변값을 같이 넣어둘 아이템 클래스
+/// </summary>
 public class CommonItem
 {
     public ScriptableItem ScriptableItem { get; private set; }
