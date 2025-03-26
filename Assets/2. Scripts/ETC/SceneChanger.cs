@@ -30,6 +30,7 @@ public class SceneChanger : MonoBehaviour
                 UIManager.Instance.UiCommon.gameObject.SetActive(false);
                 UIManager.Instance.UiMainMenu.gameObject.SetActive(false);
                 UIManager.Instance.UiStatus.gameObject.SetActive(false);
+                UIManager.Instance.UiStore.gameObject.SetActive(false);
                 break;
             case "StageScene":
                 break;

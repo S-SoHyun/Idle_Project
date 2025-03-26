@@ -20,7 +20,7 @@ public class UIManager : Singleton<UIManager>
     public UIMainMenu UiMainMenu { get; private set; }
     public UIStatus UiStatus { get; private set; }
     public UIInventory UiInventory { get; private set; }
-    public UIStore UIStore { get; private set; }
+    public UIStore UiStore { get; private set; }
 
     UIState currentState;
 
@@ -46,7 +46,7 @@ public class UIManager : Singleton<UIManager>
         uiInventory.Init(this);
         
         uiStore = GetComponentInChildren<UIStore>(true);
-        UIStore = uiStore;
+        UiStore = uiStore;
         uiStore.Init(this);
 
         ChangeState(UIState.MainMenu);      // 시작 = 메인메뉴창

@@ -69,6 +69,6 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.UiStatus.SetStatusUI(player);
         UIManager.Instance.UiMainMenu.SetMainMenuUI(player);
         UIManager.Instance.UiInventory.SetInventoryUI(player);
-        UIManager.Instance.UIStore.SetStoreUI(storeItems);
+        UIManager.Instance.UiStore.SetStoreUI(storeItems);
     }
 }

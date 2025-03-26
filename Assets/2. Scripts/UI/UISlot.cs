@@ -50,16 +50,9 @@ public class UISlot : MonoBehaviour
     /// </summary>
     void SetEquipItemUI()
     {
-        //equipIcon.gameObject.SetActive(!item.isEquipped);
-        //item.isEquipped = false;
-
         if (curItem.IsEquipped)
-        {
             equipIcon.gameObject.SetActive(true);
-        }
         else
-        {
             equipIcon.gameObject.SetActive(false);
-        }
     }
 }

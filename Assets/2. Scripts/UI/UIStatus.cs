@@ -42,12 +42,13 @@ public class UIStatus : UIBase
     /// </summary>
     public void SetStatusUI(Player player)
     {
+        GameManager.Instance.player.EquipChanged -= EquipChanged;
         GameManager.Instance.player.EquipChanged += EquipChanged;
 
-        atkText.text = $"공격력\n{player.Atk}";
-        defText.text = $"방어력\n{player.Def}";
-        hpText.text = $"체력\n{player.Hp}";
-        criticalText.text = $"치명타\n{player.Critical}";
+        atkText.text = $"공격력 {player.Atk}";
+        defText.text = $"방어력 {player.Def}";
+        hpText.text = $"체력 {player.Hp}";
+        criticalText.text = $"치명타 {player.Critical}";
     }
 
     protected override UIState GetUIState()
